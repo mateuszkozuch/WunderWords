@@ -1,4 +1,4 @@
-import { BeakerIcon } from '@heroicons/react/24/solid';
+import { AdjustmentsHorizontalIcon, BeakerIcon } from '@heroicons/react/24/solid';
 import { PuzzlePieceIcon } from '@heroicons/react/24/solid';
 import { PencilSquareIcon } from '@heroicons/react/24/solid';
 import { UserCircleIcon } from '@heroicons/react/24/solid';
@@ -34,6 +34,10 @@ const Nav = () => {
         {
             name: 'settings',
             image: <Cog6ToothIcon className="h-[2rem] text-white" />
+        },
+        {
+            name: 'testarea',
+            image: <AdjustmentsHorizontalIcon className="h-[2rem] text-white" />
         },
     ];
 

@@ -1,5 +1,5 @@
 import { ArrowLeftCircleIcon } from "@heroicons/react/24/solid"
-import LearningPath from "../../components/LearningPath"
+import LearningPath from "./LearningPath"
 import LearnQuiz from './LearnQuiz'
 
 const Learn = () => {
@@ -19,11 +19,9 @@ const Learn = () => {
 
     return(
         <div className="flex flex-col items-center">
-            {/* <CurrentTopic section={1} unit={2} unitTitle="Gemüse & Obst"/> */}
-            <div className="mt-[10rem]">
-                {/* <LearningPath /> */}
-                <LearnQuiz />
-            </div>
+            <CurrentTopic section={1} unit={2} unitTitle="Gemüse & Obst"/>
+            <LearningPath />
+            {/* <LearnQuiz /> */}
         </div>
     )
 }
