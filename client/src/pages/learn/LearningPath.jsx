@@ -1,7 +1,10 @@
-import { useState } from "react"
+import { setOfLessons } from "./lessons_data/SetOfLessons";
 
 
 const LearningPath = () => {
+    // test purpose
+    const currentSection = 1;
+    const currentUnit = 1;
 
     const Tile = (props) => {
         return(
@@ -34,10 +37,10 @@ const LearningPath = () => {
         return(
             <div className="flex flex-col items-center w-[50vw]">
                 <h1 className="text-white font-bold text-2xl m-2 p-3 rounded-3xl
-                bg-sky-600 text-center">Vegetables and Fruits</h1>
+                bg-sky-600 text-center">{setOfLessons[currentSection - 1].sourceFile.title}</h1>
                 {
                 topics2.map((topic, index) => {
-                return <Tile key={index} index={index} />
+                return <Tile key={index} index={index} content={topic}/>
                 })
                 }
             </div>
