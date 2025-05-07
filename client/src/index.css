@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+
+body {
+    background-color: #222222;
+}
+.navIcon {
+    color: white;
+    height: 3rem;
+    width: 3rem;
+}
