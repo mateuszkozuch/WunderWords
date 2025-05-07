@@ -32,7 +32,7 @@ const LearningPath = () => {
     ]
     const Items = () => {
         return(
-            <div className="flex flex-col items-center bg-amber-400 w-[50vw]">
+            <div className="flex flex-col items-center w-[50vw]">
                 <h1 className="text-white font-bold text-2xl m-2 p-3 rounded-3xl
                 bg-sky-600 text-center">Vegetables and Fruits</h1>
                 {
@@ -46,7 +46,7 @@ const LearningPath = () => {
 
 
     return(
-        <div className="pt-[8rem]">
+        <div className="pt-[8rem] bg-amber-400">
             <Items></Items>
             <Items></Items>
         </div>
