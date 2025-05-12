@@ -8,3 +8,9 @@ body {
     height: 3rem;
     width: 3rem;
 }
+
+.TILEELEMENT svg {
+    width: 4rem;
+    height: 4rem;
+    color: white;
+}
