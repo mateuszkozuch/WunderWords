@@ -1,39 +1,74 @@
-import { useState } from "react"
+import { useState } from "react";
 
-const MatchWords = () => {
+const MatchWords = ({ array }) => {
+    const [idsList, setIds] = useState([]);
+    const [correctMatches, addCorrectMatch] = useState([]);
+    const [clickedWord, setClickedWord] = useState(null);
+    const [missMatched, setMissMatched] = useState([]);
 
-    const array2 = [
-        {id: 1, Q: 'gemuse', A: 'vegetable'},
-        {id: 2, Q: 'Milk', A: 'Milch'},
-    ]
-    const handleClick = (id) => {
-        console.log(id);
-        setIds(prevIds => [...prevIds, id]);
-        if (isIdMatching.length == 2) {
-            setIds([]);
+    const handleClick = (id, text) => {
+        if (text !== clickedWord) {
+            setClickedWord(text);
+            setIds(prev => {
+                if (prev[0] === id && !correctMatches.includes(id)) {
+                    console.log('correctMatch');
+                    addCorrectMatch(prev => [...prev, id]);
+                    return prev;
+                }
+
+                if (prev.length !== 2) {
+                    return [id];
+                }
+
+                return prev;
+            });
+            if (missMatched.length === 0) {
+                setMissMatched([text]);
+            } 
+            else if (missMatched.length === 1 && !correctMatches.includes(id)) {
+                setMissMatched(prev => [...prev, text]);
+                console.log('missMatch');
+            }
+            else if (missMatched.length >= 2) {
+                console.log('Resetting missMatched');
+                setMissMatched([text]);
+            }
         }
-    }
-    const [isIdMatching, setIds] = useState([]);
+    };
 
-    const items2 = array2.map((item, index) => {
-        return(
-            <div key={index}>
-                <h1 onClick={() => {handleClick(item.id)}}
-                className={isIdMatching[0] == item.id && isIdMatching[1] == item.id ? 'bg-green-500' : 'bg-red-500'}>{item.Q}</h1>
-                <h1 onClick={() => {handleClick(item.id)}}
-                className={isIdMatching[0] == item.id && isIdMatching[1] == item.id ? 'bg-green-500' : 'bg-red-500'}>{item.A}</h1>
-            </div>
-        )
-    })
+    const WordElement = ({ id, word }) => {
+        return (
+            <li className={`flex items-center justify-center w-[16rem] h-[5rem] m-1 rounded-xl cursor-pointer text-white font-bold
+                text-3xl ${clickedWord === word ? 'border-4 border-white' : ''}
+                ${correctMatches.includes(id) ? 'bg-green-500' : 'bg-gray-500'}
+                ${missMatched.includes(word) && missMatched.length >= 2 ? 'bg-red-600' : null}
+                `}
+                onClick={() => { handleClick(id, word) }}>
+                <h1>{word}</h1>
+            </li>
+        );
+    };
 
-    return(
-        <div>
-            <div>
-                {items2}
-                <h1>{isIdMatching}</h1>
+    const displayWords = array.map((item, index) => {
+        return (
+            <div key={index} className="flex">
+                <ul>
+                    <WordElement id={item.id} word={item.Q} />
+                </ul>
+                <ul>
+                    <WordElement id={item.id} word={item.A} />
+                </ul>
             </div>
-        </div>
-    )
-}
+        );
+    });
+
+    return (
+        <>
+            {displayWords}
+            <h1>{idsList.join(', ')}</h1>
+            <h1>MissMatched: {missMatched.join(', ')}</h1>
+        </>
+    );
+};
 
 export default MatchWords;
