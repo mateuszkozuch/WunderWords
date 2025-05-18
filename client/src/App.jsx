@@ -3,7 +3,7 @@ import Nav from "./components/Nav";
 import Learn from "./pages/learn/Learn";
 import Profile from "./pages/Profile";
 import Notes from "./pages/Notes";
-import Games from "./pages/Games";
+import Games from "./pages/games/Games";
 import Settings from "./pages/Settings";
 import TestArea from "./pages/TestArea";
 

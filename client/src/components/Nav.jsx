@@ -55,7 +55,9 @@ const Nav = () => {
     return (
         <nav className="h-screen w-1/7 bg-sky-900 flex flex-col items-center fixed">
             <h1 className="text-[1.5vw] text-white font-bold p-3">WunderWords</h1>
-            <div className="bg-white h-[0.1rem] w-3/4 mb-2"></div>
+            <div className="bg-white h-[0.2vw] w-3/4"></div>
+            <img src='german_flag.png' className='w-3/7 m-3'></img>
+            <div className="bg-white h-[0.2vw] w-3/4 mb-2"></div>
             <ul className="flex flex-col w-full items-center gap-1">
                 {menuOptionsElements}
             </ul>

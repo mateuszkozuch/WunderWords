@@ -3,10 +3,9 @@ import LearningPath from "./LearningPath"
 const Learn = () => {
 
     return(
-        <div className="flex flex-col items-center">
+        <section className="flex flex-col items-center h-screen">
             <LearningPath />
-            {/* <LearnQuiz /> */}
-        </div>
+        </section>
     )
 }
 
